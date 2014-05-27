@@ -170,9 +170,6 @@ class Sitemap
                 $view = array('content' => View::make('sitemap::xml', array('items' => $this->model->getItems())), 'headers' => array('Content-type' => 'text/xml; charset=utf-8'));
         }
 
-        // Reset Content Tags
-        \Blade::setContentTags($oldTags[0], $oldTags[1]);
-
         return $view;
     }
 
