@@ -151,8 +151,8 @@ class Sitemap
         }
 
         // Temporarily Adjust Content Tags
-        $oldTags = Blade::getContentTags();
-        Blade::setContentTags('{{','}}');
+        $oldTags = \Blade::getContentTags();
+        \Blade::setContentTags('{{','}}');
 
         switch ($format)
         {
@@ -171,7 +171,7 @@ class Sitemap
         }
 
         // Reset Content Tags
-        Blade::setContentTags($oldTags[0], $oldTags[1]);
+        \Blade::setContentTags($oldTags[0], $oldTags[1]);
 
         return $view;
     }
