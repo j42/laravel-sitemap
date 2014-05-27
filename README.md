@@ -1,6 +1,6 @@
 # [laravel-sitemap](http://roumen.it/projects/laravel-sitemap) package
 
-[![Latest Stable Version](https://poser.pugx.org/roumen/sitemap/version.png)](https://packagist.org/packages/roumen/sitemap) [![Total Downloads](https://poser.pugx.org/roumen/sitemap/d/total.png)](https://packagist.org/packages/roumen/sitemap) [![Build Status](https://travis-ci.org/RoumenDamianoff/laravel-sitemap.png?branch=master)](https://travis-ci.org/RoumenDamianoff/laravel-sitemap) [![License](https://poser.pugx.org/roumen/sitemap/license.png)](https://packagist.org/packages/roumen/sitemap)
+[![Latest Stable Version](https://poser.pugx.org/j42/laravel-sitemap/version.png)](https://packagist.org/packages/j42/laravel-sitemap) [![Total Downloads](https://poser.pugx.org/j42/laravel-sitemap/d/total.png)](https://packagist.org/packages/j42/laravel-sitemap) [![Build Status](https://travis-ci.org/RoumenDamianoff/laravel-sitemap.png?branch=master)](https://travis-ci.org/RoumenDamianoff/laravel-sitemap) [![License](https://poser.pugx.org/j42/laravel-sitemap/license.png)](https://packagist.org/packages/j42/laravel-sitemap)
 
 A simple sitemap generator for Laravel 4.
 
@@ -10,7 +10,7 @@ A simple sitemap generator for Laravel 4.
 Add the following to your `composer.json` file :
 
 ```json
-"roumen/sitemap": "dev-master"
+"j42/laravel-sitemap": "dev-master"
 ```
 
 Then register this service provider with Laravel :
@@ -21,7 +21,7 @@ Then register this service provider with Laravel :
 
 Publish configuration file. (OPTIONAL)
 
-    php artisan config:publish roumen/sitemap
+    php artisan config:publish j42/laravel-sitemap
 
 
 ## Examples
