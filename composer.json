@@ -1,16 +1,22 @@
 {
-    "name": "roumen/sitemap",
+    "name": "j42/laravel-sitemap",
     "description": "A simple sitemap generator for Laravel.",
-    "homepage": "http://roumen.it/projects/laravel-sitemap",
+    "homepage": "https://github.com/j42/laravel-sitemap",
     "keywords": ["laravel", "sitemap"],
     "license": "MIT",
     "authors": [
-    {
+        {
             "name": "Roumen Damianoff",
             "email": "roumen@dawebs.com",
             "role": "Developer",
             "homepage": "http://roumen.it"
-    }
+        },
+        {
+            "name": "Julian Aceves",
+            "email": "j@j42.me",
+            "role": "Owner",
+            "homepage": "https://j42.me"
+        }
     ],
     "require": {
         "php": ">=5.3.0",
