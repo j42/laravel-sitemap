@@ -151,7 +151,6 @@ class Sitemap
         }
 
         // Temporarily Adjust Content Tags
-        $oldTags = \Blade::getContentTags();
         \Blade::setContentTags('{{','}}');
 
         switch ($format)
