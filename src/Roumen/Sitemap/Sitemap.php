@@ -150,21 +150,30 @@ class Sitemap
                 }
         }
 
+        // Temporarily Adjust Content Tags
+        $oldTags = Blade::getContentTags();
+        Blade::setContentTags('{{','}}');
+
         switch ($format)
         {
             case 'ror-rss':
-                return array('content' => View::make('sitemap::ror-rss', array('items' => $this->model->getItems(), 'channel' => $channel)), 'headers' => array('Content-type' => 'text/rss+xml; charset=utf-8'));
+                $view = array('content' => View::make('sitemap::ror-rss', array('items' => $this->model->getItems(), 'channel' => $channel)), 'headers' => array('Content-type' => 'text/rss+xml; charset=utf-8'));
             case 'ror-rdf':
-                return array('content' => View::make('sitemap::ror-rdf', array('items' => $this->model->getItems(), 'channel' => $channel)), 'headers' => array('Content-type' => 'text/rdf+xml; charset=utf-8'));
+                $view = array('content' => View::make('sitemap::ror-rdf', array('items' => $this->model->getItems(), 'channel' => $channel)), 'headers' => array('Content-type' => 'text/rdf+xml; charset=utf-8'));
             case 'html':
-                return array('content' => View::make('sitemap::html', array('items' => $this->model->getItems(), 'channel' => $channel)), 'headers' => array('Content-type' => 'text/html'));
+                $view = array('content' => View::make('sitemap::html', array('items' => $this->model->getItems(), 'channel' => $channel)), 'headers' => array('Content-type' => 'text/html'));
             case 'txt':
-                return array('content' => View::make('sitemap::txt', array('items' => $this->model->getItems())), 'headers' => array('Content-type' => 'text/plain'));
+                $view = array('content' => View::make('sitemap::txt', array('items' => $this->model->getItems())), 'headers' => array('Content-type' => 'text/plain'));
             case 'sitemapindex':
-                return array('content' => View::make('sitemap::sitemapindex', array('sitemaps' => $this->model->getSitemaps())), 'headers' => array('Content-type' => 'text/xml; charset=utf-8'));
+                $view = array('content' => View::make('sitemap::sitemapindex', array('sitemaps' => $this->model->getSitemaps())), 'headers' => array('Content-type' => 'text/xml; charset=utf-8'));
             default:
-                return array('content' => View::make('sitemap::xml', array('items' => $this->model->getItems())), 'headers' => array('Content-type' => 'text/xml; charset=utf-8'));
+                $view = array('content' => View::make('sitemap::xml', array('items' => $this->model->getItems())), 'headers' => array('Content-type' => 'text/xml; charset=utf-8'));
         }
+
+        // Reset Content Tags
+        Blade::setContentTags($oldTags[0], $oldTags[1]);
+
+        return $view;
     }
 
     /**
