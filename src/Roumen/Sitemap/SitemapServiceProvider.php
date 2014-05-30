@@ -18,7 +18,7 @@ class SitemapServiceProvider extends ServiceProvider {
      */
     public function boot()
     {
-        $this->package('roumen/sitemap');
+        $this->package('j42/sitemap');
     }
 
     /**
