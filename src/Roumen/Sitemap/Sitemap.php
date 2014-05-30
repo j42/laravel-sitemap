@@ -156,20 +156,18 @@ class Sitemap
         switch ($format)
         {
             case 'ror-rss':
-                $view = array('content' => View::make('sitemap::ror-rss', array('items' => $this->model->getItems(), 'channel' => $channel)), 'headers' => array('Content-type' => 'text/rss+xml; charset=utf-8'));
+                return array('content' => View::make('sitemap::ror-rss', array('items' => $this->model->getItems(), 'channel' => $channel)), 'headers' => array('Content-type' => 'text/rss+xml; charset=utf-8'));
             case 'ror-rdf':
-                $view = array('content' => View::make('sitemap::ror-rdf', array('items' => $this->model->getItems(), 'channel' => $channel)), 'headers' => array('Content-type' => 'text/rdf+xml; charset=utf-8'));
+                return array('content' => View::make('sitemap::ror-rdf', array('items' => $this->model->getItems(), 'channel' => $channel)), 'headers' => array('Content-type' => 'text/rdf+xml; charset=utf-8'));
             case 'html':
-                $view = array('content' => View::make('sitemap::html', array('items' => $this->model->getItems(), 'channel' => $channel)), 'headers' => array('Content-type' => 'text/html'));
+                return array('content' => View::make('sitemap::html', array('items' => $this->model->getItems(), 'channel' => $channel)), 'headers' => array('Content-type' => 'text/html'));
             case 'txt':
-                $view = array('content' => View::make('sitemap::txt', array('items' => $this->model->getItems())), 'headers' => array('Content-type' => 'text/plain'));
+                return array('content' => View::make('sitemap::txt', array('items' => $this->model->getItems())), 'headers' => array('Content-type' => 'text/plain'));
             case 'sitemapindex':
-                $view = array('content' => View::make('sitemap::sitemapindex', array('sitemaps' => $this->model->getSitemaps())), 'headers' => array('Content-type' => 'text/xml; charset=utf-8'));
+                return array('content' => View::make('sitemap::sitemapindex', array('sitemaps' => $this->model->getSitemaps())), 'headers' => array('Content-type' => 'text/xml; charset=utf-8'));
             default:
-                $view = array('content' => View::make('sitemap::xml', array('items' => $this->model->getItems())), 'headers' => array('Content-type' => 'text/xml; charset=utf-8'));
+                return array('content' => View::make('sitemap::xml', array('items' => $this->model->getItems())), 'headers' => array('Content-type' => 'text/xml; charset=utf-8'));
         }
-
-        return $view;
     }
 
     /**
@@ -184,7 +182,7 @@ class Sitemap
     {
         $data = $this->generate($format);
 
-        if ($format == 'ror-rss' || $format == 'ror-rdf')
+        if ($format == 'ror-rss' || $format == 'ror-rdf' || $format == 'sitemapindex')
         {
             $format = 'xml';
         }
