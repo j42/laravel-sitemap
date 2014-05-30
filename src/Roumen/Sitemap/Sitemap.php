@@ -184,7 +184,7 @@ class Sitemap
     {
         $data = $this->generate($format);
 
-        if ($format == 'ror-rss' || $format == 'ror-rdf' || $format == 'sitemapindex')
+        if ($format == 'ror-rss' || $format == 'ror-rdf')
         {
             $format = 'xml';
         }
